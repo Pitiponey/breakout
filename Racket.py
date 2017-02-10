@@ -12,6 +12,18 @@ class Racket():
         self.pos_x = x
         self.pos_y = y
 
+    def get_pos_x(self):
+        return self.pos_x
+
+    def get_pos_y(self):
+        return self.pos_y
+
+    def get_width(self):
+        return self.width
+
+    def get_height(self):
+        return self.height
+
     def draw(self):
         cv2.rectangle(self.img, (self.pos_x - self.width, self.pos_y - self.height), (self.pos_x + self.width, self.pos_y + self.height),
                       (0, 0, 255), -1)

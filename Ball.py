@@ -14,6 +14,15 @@ class Ball():
         if self.pos_y > WINDOW_HEIGTH:
             self.pos_y = 0
 
+    def get_pos_x(self):
+        return self.pos_x
+
+    def get_pos_y(self):
+        return self.pos_y
+
+    def get_radius(self):
+        return self.radius
+
     def draw_ball(self):
         self.move_ball()
         cv2.rectangle(self.img, (0, HAUTEUR_PIXEL), (WINDOW_WIDTH, WINDOW_HEIGTH), (50, 50, 50), -1)

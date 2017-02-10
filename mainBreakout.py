@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
-from Config import *
-from Ball import Ball
-from Racket import Racket
+from Ball import *
+from Racket import *
+from Controller import *
 
 
 def handle_event(event, x, y, flags, param):
@@ -21,13 +21,18 @@ if __name__ == "__main__":
     white_ball = Ball(150, 0, 10, img)
     racket = Racket(230, 460, RACKET_WIDTH, RACKET_HEIGTH, img)
 
+    comparator = Colision(white_ball.get_pos_x, white_ball.get_pos_y, white_ball.get_radius(),
+                          racket.get_pos_x(), racket.get_pos_y(), racket.get_width(), racket.get_height())
+
     cv2.setMouseCallback("mouse", handle_event)
     while 1:
         cv2.rectangle(img, (0, 0), (WINDOW_HEIGTH, HAUTEUR_PIXEL), (0, 0, 0), -1)
         img = white_ball.draw_ball()
         img = racket.draw()
 
-        # Lancement de la balle
+        print comparator.Comparator()
+
+
         # Gestion des rebonds
         cv2.imshow("mouse", img)
         if cv2.waitKey(1) == 27:
