@@ -1,5 +1,6 @@
 from ball import *
 from racket import *
+from collision import *
 
 
 def event_handler(events):
@@ -17,11 +18,16 @@ if __name__ == "__main__":
     done = False
 
     clock = pygame.time.Clock()
-    ball   = Ball(screen, WHITE, 255, 495, 10, 0)
+    ball   = Ball(screen, WHITE, 255, 100, 10, 0)
     racket = Racket(screen, RACKET_COLOR, SQUARE_WIDTH, SQUARE_HEIGHT)
+    collision = Collision(ball.get_x(), ball.get_y(), ball.get_radius(),
+                          racket.get_x(), racket.get_y(), racket.get_width(), racket.get_height())
 
     while not done:
         done = event_handler(pygame.event.get())
+        collision.up_date(ball.get_x(), ball.get_y(), racket.pos_x, racket.pos_y)
+        collision.collision_racket_ball()
+
 
         screen.fill((0, 0, 0))
 

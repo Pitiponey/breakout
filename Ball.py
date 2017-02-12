@@ -1,7 +1,8 @@
 import pygame
 from config import *
 
-class Ball():
+
+class Ball:
     def __init__(self, screen, color, pos_x, pos_y, radius, width):
         self.screen = screen
         self.color  = color
@@ -11,10 +12,14 @@ class Ball():
         self.width  = width
 
     def increment(self):
-        self.pos_y += SPEED
-
-        if self.pos_y > BALL_MAX:
-            self.pos_y = 0
+        if config.DOWN:
+            self.pos_y += SPEED
+            if self.pos_y > BALL_MAX:
+                config.DOWN = False
+        else:
+            self.pos_y -= SPEED
+            if self.pos_y < 0:
+                config.DOWN = True
 
     def draw(self):
         self.increment()
@@ -25,3 +30,12 @@ class Ball():
 
     def set_y(self, y):
         self.pos_y = y
+
+    def get_y(self):
+        return self.pos_y
+
+    def get_x(self):
+        return self.pos_x
+
+    def get_radius(self):
+        return self.radius
