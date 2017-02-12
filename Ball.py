@@ -27,19 +27,25 @@ class Ball:
             Améliorations à faire : Gérer avec des angles et non 90°
         """
         Config.SPEED_Y = int(SPEED * cos(Config.ANGLE))
-        Config.SPEED_X = int(SPEED * sin(Config.ANGLE)) * -1
+        Config.SPEED_X = int(SPEED * sin(Config.ANGLE))
+
+        if Config.SPEED_Y < 0:
+            Config.SPEED_Y *= -1
+
+        if Config.SPEED_X > 0:
+            Config.SPEED_X *= -1
 
         if Config.UP:
-            self.pos_y -= Config.SPEED_Y
-
-        if Config.DOWN:
             self.pos_y += Config.SPEED_Y
 
+        if Config.DOWN:
+            self.pos_y -= Config.SPEED_Y
+
         if Config.LEFT:
-            self.pos_x -= Config.SPEED_X
+            self.pos_x += Config.SPEED_X
 
         if Config.RIGHT:
-            self.pos_x += Config.SPEED_X
+            self.pos_x -= Config.SPEED_X
 
     def draw(self):
         """

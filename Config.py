@@ -27,12 +27,12 @@ WHITE          = (255, 255, 255)
 class Config:
     def __init__(self):
         pass
-    DOWN  = False
-    UP    = True
-    RIGHT = True
-    LEFT  = False
+    DOWN  = True
+    UP    = False
+    RIGHT = False
+    LEFT  = True
 
-    SPEED_X =  5
-    SPEED_Y =  5
-    ANGLE   = 60
+    SPEED_X =  SPEED
+    SPEED_Y =  SPEED
+    ANGLE   = 10
 
