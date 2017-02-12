@@ -14,8 +14,16 @@ LINE_HEIGHT    =   3
 PLAY_ZONE_CALC = SCREEN_HEIGHT - PLAY_ZONE
 
 # speed of the ball and max before hit the ground
-SPEED          = 3
+SPEED          = 5
 BALL_MAX       = 500
 
 # Color
 WHITE          = (255, 255, 255)
+
+
+class config:
+    def __init__(self):
+        pass
+
+    DOWN = True
+
