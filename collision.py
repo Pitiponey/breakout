@@ -29,6 +29,7 @@ class Collision:
            self.racket_pos_y - self.racket_heigth / 2 - SPEED - SPEED / 2 < self.ball_pos_y + RADIUS / 2 < \
            self.racket_pos_y - self.racket_heigth / 2 + SPEED - SPEED / 2:
 
+            print self.racket_pos_x, self.ball_pos_x
             if Config.UP:
                 Config.UP = False
                 Config.DOWN = True

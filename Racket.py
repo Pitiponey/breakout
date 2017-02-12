@@ -12,7 +12,7 @@ class Racket:
         self.width = Largeur de la raquette
         self.height = Hauteur de la raquette
     """
-    def __init__(self, screen, color, pos_x = 30, pos_y= 30, width = 100, height = 20):
+    def __init__(self, screen, color, pos_x = 30, pos_y= 300, width = 100, height = 20):
         self.screen = screen
         self.color = color
         self.pos_x = pos_x

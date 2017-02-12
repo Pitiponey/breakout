@@ -19,7 +19,6 @@ SPEED          =  10
 BALL_MAX       = 500
 RADIUS         =  10
 
-
 # Color
 WHITE          = (255, 255, 255)
 
@@ -32,7 +31,7 @@ class Config:
     RIGHT = False
     LEFT  = True
 
-    SPEED_X =  SPEED
-    SPEED_Y =  SPEED
+    SPEED_X = SPEED
+    SPEED_Y = SPEED
     ANGLE   = 10
 
