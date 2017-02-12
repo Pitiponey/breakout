@@ -1,11 +1,21 @@
-# DEFINES
 
-WIDTH_RACKET  =  60
-HEIGHT_RACKET =   7
-HAUTEUR_PIXEL = 420
+# Game screen
+SCREEN_WIDTH   = 700
+SCREEN_HEIGHT  = 500
 
-WINDOW_WIDTH  = 500
-WINDOW_HEIGTH = 500
+# Racket config
+SQUARE_WIDTH   = 100
+SQUARE_HEIGHT  =  20
+RACKET_COLOR   = (50, 228, 255)
 
-RACKET_WIDTH  =  50
-RACKET_HEIGTH =  10
+# Play zone
+PLAY_ZONE      = 100
+LINE_HEIGHT    =   3
+PLAY_ZONE_CALC = SCREEN_HEIGHT - PLAY_ZONE
+
+# speed of the ball and max before hit the ground
+SPEED          = 3
+BALL_MAX       = 500
+
+# Color
+WHITE          = (255, 255, 255)

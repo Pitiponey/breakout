@@ -1,31 +1,27 @@
-import cv2
-from Config import *
-
+import pygame
+from config import *
 
 class Ball():
-    def __init__(self, pos_x, pos_y, radius, img):
+    def __init__(self, screen, color, pos_x, pos_y, radius, width):
+        self.screen = screen
+        self.color  = color
         self.pos_x  = pos_x
         self.pos_y  = pos_y
         self.radius = radius
-        self.img    = img
+        self.width  = width
 
-    def move_ball(self):
-        self.pos_y += 2
-        if self.pos_y > WINDOW_HEIGTH:
+    def increment(self):
+        self.pos_y += SPEED
+
+        if self.pos_y > BALL_MAX:
             self.pos_y = 0
 
-    def get_pos_x(self):
-        return self.pos_x
+    def draw(self):
+        self.increment()
+        pygame.draw.circle(self.screen, self.color, (self.pos_x, self.pos_y), self.radius, self.width)
 
-    def get_pos_y(self):
-        return self.pos_y
+    def set_x(self, x):
+        self.pos_x = x
 
-    def get_radius(self):
-        return self.radius
-
-    def draw_ball(self):
-        self.move_ball()
-        cv2.rectangle(self.img, (0, HAUTEUR_PIXEL), (WINDOW_WIDTH, WINDOW_HEIGTH), (50, 50, 50), -1)
-        cv2.circle(self.img, (self.pos_x, int(self.pos_y)), self.radius, (255, 255, 255), -1)
-
-        return self.img
+    def set_y(self, y):
+        self.pos_y = y
