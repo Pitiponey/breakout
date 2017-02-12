@@ -15,8 +15,10 @@ LINE_HEIGHT    =   3
 PLAY_ZONE_CALC = SCREEN_HEIGHT - PLAY_ZONE
 
 # speed of the ball and max before hit the ground
-SPEED          = 5
+SPEED          =  10
 BALL_MAX       = 500
+RADIUS         =  10
+
 
 # Color
 WHITE          = (255, 255, 255)
@@ -25,6 +27,12 @@ WHITE          = (255, 255, 255)
 class Config:
     def __init__(self):
         pass
+    DOWN  = False
+    UP    = True
+    RIGHT = True
+    LEFT  = False
 
-    DOWN = True
+    SPEED_X =  5
+    SPEED_Y =  5
+    ANGLE   = 60
 

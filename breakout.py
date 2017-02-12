@@ -17,6 +17,7 @@ def event_handler(events):
             x, y = event.pos
             racket.set_x(x), racket.set_y(y)
 
+
 # Fonction main de l'application
 if __name__ == "__main__":
     # On initialise une instance de Pygame
@@ -29,7 +30,7 @@ if __name__ == "__main__":
     clock = pygame.time.Clock()
     # On crée une instance de balle Ball(Écran, Couleur de la balle, position x,
     # position y, taille de la balle, remplissage)
-    ball   = Ball(screen, WHITE, 255, 100, 10, 0)
+    ball   = Ball(screen, WHITE, 255, 100, RADIUS, 0)
     # Racket (Écran, Couleur de la raquette, lageur de la raquette, hauteur de la raquette)
     racket = Racket(screen, RACKET_COLOR, SQUARE_WIDTH, SQUARE_HEIGHT)
     # Gère les colisions
@@ -39,8 +40,9 @@ if __name__ == "__main__":
     while not to_quit:
         # Récupère si la touche escape a été appuyée ou si l'utilisateur a fermé le programme
         to_quit = event_handler(pygame.event.get())
-        # Met à jour les informations pour les collisions
-        collision.up_date(ball.get_x(), ball.get_y(), racket.pos_x, racket.pos_y)
+        # Gère les collisions avec le mur avant d'incrémenter
+        collision.collision_ball_wall(ball.get_x(), ball.get_y())
+        collision.update(ball.get_x(), ball.get_y(), racket.pos_x, racket.pos_y)
 
         # Rempli l'écran en noir
         screen.fill((0, 0, 0))

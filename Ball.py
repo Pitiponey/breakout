@@ -1,6 +1,7 @@
 # coding: utf8
 import pygame
 from config import *
+from math import sin, cos
 
 
 class Ball:
@@ -22,16 +23,23 @@ class Ball:
 
     def increment(self):
         """
-            Gère la sens de la balle vers la haut ou le bas
+            Gère le sens de la balle, et inverse la direction
+            Améliorations à faire : Gérer avec des angles et non 90°
         """
+        Config.SPEED_Y = int(SPEED * cos(Config.ANGLE))
+        Config.SPEED_X = int(SPEED * sin(Config.ANGLE)) * -1
+
+        if Config.UP:
+            self.pos_y -= Config.SPEED_Y
+
         if Config.DOWN:
-            self.pos_y += SPEED
-            if self.pos_y > BALL_MAX:
-                Config.DOWN = False
-        else:
-            self.pos_y -= SPEED
-            if self.pos_y < 0:
-                Config.DOWN = True
+            self.pos_y += Config.SPEED_Y
+
+        if Config.LEFT:
+            self.pos_x -= Config.SPEED_X
+
+        if Config.RIGHT:
+            self.pos_x += Config.SPEED_X
 
     def draw(self):
         """
