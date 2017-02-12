@@ -20,5 +20,5 @@ class Collision():
         if self.racket_pos_x - self.racket_width / 2 < self.ball_pos_x < self.racket_pos_x + self.racket_width / 2 and \
            self.racket_pos_y - self.racket_heigth / 2 - SPEED - SPEED / 2 < self.ball_pos_y < \
            self.racket_pos_y - self.racket_heigth / 2 + SPEED - SPEED / 2:
-            
+
             config.DOWN = False
