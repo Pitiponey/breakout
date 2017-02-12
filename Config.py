@@ -1,3 +1,4 @@
+# coding: utf8
 
 # Game screen
 SCREEN_WIDTH   = 700
@@ -21,7 +22,7 @@ BALL_MAX       = 500
 WHITE          = (255, 255, 255)
 
 
-class config:
+class Config:
     def __init__(self):
         pass
 
