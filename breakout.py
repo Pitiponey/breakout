@@ -29,13 +29,12 @@ if __name__ == "__main__":
     clock = pygame.time.Clock()
     # On crée une instance de balle Ball(Écran, Couleur de la balle, position x,
     # position y, taille de la balle, remplissage)
-    ball   = Ball(screen, WHITE, 255, 100, RADIUS, FILL)
+    ball   = Ball(screen, WHITE, 255, 500, RADIUS, FILL)
     # Racket (Écran, Couleur de la raquette, lageur de la raquette, hauteur de la raquette)
     racket = Racket(screen, RACKET_COLOR, SQUARE_WIDTH, SQUARE_HEIGHT)
     # Création d'une instance Brick avec l'écran et la couleur, la gestion des briques se fait plus tard
     brick = Brick(screen, BRICK_COLOR)
     brick.create_bricks(NUMBER_BRICKS, NUMBER_LINE)
-
     # Gère les colisions
     collision = Collision(ball.get_x(), ball.get_y(), ball.get_radius(),
                           racket.get_x(), racket.get_y(), racket.get_width(), racket.get_height())
@@ -46,7 +45,8 @@ if __name__ == "__main__":
         to_quit = event_handler(pygame.event.get())
         # Gère les collisions avec le mur avant d'incrémenter
         collision.collision_ball_wall(ball.get_x(), ball.get_y())
-        collision.update(ball.get_x(), ball.get_y(), racket.pos_x, racket.pos_y)
+        collision.update(ball.get_x(), ball.get_y(), racket.pos_x, racket.pos_y, brick.get_brick_list())
+
 
         # Rempli l'écran en noir
         screen.fill(BLACK)
