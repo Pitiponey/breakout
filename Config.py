@@ -21,6 +21,7 @@ FILL           = 0
 # Brick configuration
 BRICK_WIDTH    = 50
 BRICK_HEIGHT   = 25
+SPACE_BETWEEN  = 50
 NUMBER_BRICKS  = 10
 NUMBER_LINE    =  5
 

@@ -1,7 +1,5 @@
 # coding: utf8
 from ball import *
-from racket import *
-from collision import *
 from brick import *
 
 
@@ -54,9 +52,9 @@ if __name__ == "__main__":
         screen.fill(BLACK)
         # Dessine la ligne blanche pour délimiter le terrain de jeu, la balle, et la raquette
         pygame.draw.line(screen, WHITE, (0, PLAY_ZONE_CALC), (SCREEN_WIDTH, PLAY_ZONE_CALC), LINE_HEIGHT)
+        brick.draw()
         ball.draw()
         racket.draw()
-        brick.draw()
 
         # Affiche les nouveaux éléments à l'écran
         pygame.display.flip()
