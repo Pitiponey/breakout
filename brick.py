@@ -3,7 +3,7 @@ from racket import *
 from collision import *
 
 
-class Brick():
+class Brick:
     def __init__(self, screen, color, width = BRICK_WIDTH, height = BRICK_HEIGHT):
         self.screen      = screen
         self.color       = color
@@ -32,3 +32,7 @@ class Brick():
     def draw(self):
         for pos_x, pos_y, number in self.list_bricks:
             pygame.draw.rect(self.screen, self.color, pygame.Rect(pos_x, pos_y, self.width, self.height))
+
+    def get_brick_list(self):
+        return self.list_bricks
+
