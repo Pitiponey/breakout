@@ -42,6 +42,7 @@ class Config:
     RIGHT = False
     LEFT  = True
 
+
     SPEED_X = SPEED
     SPEED_Y = SPEED
     ANGLE   = 0
