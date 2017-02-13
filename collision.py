@@ -21,15 +21,34 @@ class Collision:
         self.racket_width  = racket_width
         self.racket_heigth = racket_heigth
 
+    @staticmethod
+    def calcul_rebound_angle(ball_impact):
+        """if ball_impact < 0: ball_impact *= -1
+        inp = int(ball_impact / 9)
+        if inp == 0:
+            Config.ANGLE = 0
+        elif inp == 1:
+            Config.ANGLE = 50
+        elif inp == 2:
+            Config.ANGLE = 60
+        elif inp == 3:
+            Config.ANGLE = 70
+        elif inp == 4:
+            Config.ANGLE = 90
+        else:
+            Config.ANGLE = 80"""
+        Config.ANGLE = 0
+
     """
         Test si la balle et la raquette sont au même endroit à 10 px près
     """
     def collision_racket_ball(self):
-        if self.racket_pos_x - self.racket_width / 2 < self.ball_pos_x + RADIUS / 2 < self.racket_pos_x + self.racket_width / 2 and \
-           self.racket_pos_y - self.racket_heigth / 2 - SPEED - SPEED / 2 < self.ball_pos_y + RADIUS / 2 < \
+        if self.racket_pos_x - self.racket_width / 2 < self.ball_pos_x + RADIUS / 2 < self.racket_pos_x + self.racket_width / 2 + RADIUS and \
+           self.racket_pos_y - self.racket_heigth / 2 - SPEED - SPEED / 2 < self.ball_pos_y < \
            self.racket_pos_y - self.racket_heigth / 2 + SPEED - SPEED / 2:
 
-            print self.racket_pos_x, self.ball_pos_x
+            self.calcul_rebound_angle(self.racket_pos_x - self.ball_pos_x)
+
             if Config.UP:
                 Config.UP = False
                 Config.DOWN = True
