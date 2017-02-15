@@ -55,14 +55,15 @@ class Collision:
                 Config.UP = False
                 Config.DOWN = True
 
-
     def collision_brick_ball(self, list_brick):
+        index_2_remove = 0
         for pos_x, pos_y, number in list_brick:
-            #if self.ball_pos_x > pos_x and self.ball_pos_x < pos_x + BRICK_WIDTH and self.ball_pos_y > pos_y and self.ball_pos_y < pos_y + BRICK_HEIGHT:
+            # if self.ball_pos_x > pos_x and self.ball_pos_x < pos_x + BRICK_WIDTH and self.ball_pos_y >
+            #  pos_y and self.ball_pos_y < pos_y + BRICK_HEIGHT:
             if pos_x < self.ball_pos_x - (RADIUS * 2) < pos_x + BRICK_WIDTH and pos_y < self.ball_pos_y - \
                     (RADIUS * 2) < pos_y + BRICK_HEIGHT:
 
-                del list_brick[int(number) - 1]
+                del list_brick[index_2_remove]
 
                 if Config.UP:
                     Config.UP = False
@@ -79,6 +80,8 @@ class Collision:
                 if Config.RIGHT:
                     Config.RIGHT = False
                     Config.LEFT = True
+
+            index_2_remove += 1
 
     """
         Récupère les valeurs actuelles avant de tester si il y a une collision ou non
